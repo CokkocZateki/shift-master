@@ -19,8 +19,8 @@ Web based shift management application developed for SrpoutTech, NSW.
 
 ##Authors
 
-[Ryan Basnet] (https://github.com/ryanbasnet)
-[Prakash Khadka] (https://github.com/prakashkhadka)
+* [Ryan Basnet] (https://github.com/ryanbasnet)
+* [Prakash Khadka] (https://github.com/prakashkhadka)
 
 ##License
 
