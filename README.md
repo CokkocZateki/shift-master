@@ -34,4 +34,4 @@ Some of the resources we have used as inspiration and guidlines :
  * [Link3] ()
 
 ##Contact
-Please mail us at ryandbasnet@gmail.com
+Please contact us at ryandbasnet@gmail.com if you have any concern, advice or just to say hello.
