@@ -5,12 +5,12 @@ Web based shift management application developed for subha pty ltd, Gordon, NSW.
 ##Built With
 
 * [Laravel] (http://www.dropwizard.io/1.0.2/docs/) - PHP web framework
-* [MySQL] - Database
-* [Angular] - Fronjtend JS framework
-* [Bootstrap] - CSS framework
-* [SCSS] - Css preprocessor
-* [npm] - Dependency Management
-* [Gulp] - Task automation tool 
+* [MySQL](http://www.dropwizard.io/1.0.2/docs/)- Database
+* [Angular] (http://www.dropwizard.io/1.0.2/docs/)- Fronjtend JS framework
+* [Bootstrap] (http://www.dropwizard.io/1.0.2/docs/) - CSS framework
+* [SCSS] (http://www.dropwizard.io/1.0.2/docs/)- Css preprocessor
+* [npm] (http://www.dropwizard.io/1.0.2/docs/)- Dependency Management
+* [Gulp] (http://www.dropwizard.io/1.0.2/docs/)- Task automation tool 
 
 
 ##Versioning
