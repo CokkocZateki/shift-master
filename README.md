@@ -1,4 +1,4 @@
-# shift-master
+# Shift-master
 Web based shift management application developed for subha pty ltd, Gordon, NSW.
 
 
