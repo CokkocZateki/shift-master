@@ -15,19 +15,23 @@ Web based shift management application developed for subha pty ltd, Gordon, NSW.
 
 ##Versioning
 
-1.0.0
+1.0.0.0
 
 ##Authors
 
-Ryan Basnet 
-Prakash Khadka
+[Ryan Basnet] ()
+[Prakash Khadka] ()
 
 ##License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-Acknowledgments
+##Acknowledgments
 
-Hat tip to anyone who's code was used
-Inspiration
-etc
+Some of the resources we have used as inspiration and guidlines :
+ * [Link1] ()
+ * [Link2] ()
+ * [Link3] ()
+
+##Contact
+Please mail us at ryandbasnet@gmail.com
