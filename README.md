@@ -1,16 +1,16 @@
 # Shift-master
-Web based shift management application developed for subha pty ltd, Gordon, NSW.
+Web based shift management application developed for SrpoutTech, NSW.
 
 
 ##Built With
 
-* [Laravel] (http://www.dropwizard.io/1.0.2/docs/) - PHP web framework
-* [MySQL](http://www.dropwizard.io/1.0.2/docs/)- Database
-* [Angular] (http://www.dropwizard.io/1.0.2/docs/)- Fronjtend JS framework
-* [Bootstrap] (http://www.dropwizard.io/1.0.2/docs/) - CSS framework
-* [SCSS] (http://www.dropwizard.io/1.0.2/docs/)- Css preprocessor
-* [npm] (http://www.dropwizard.io/1.0.2/docs/)- Dependency Management
-* [Gulp] (http://www.dropwizard.io/1.0.2/docs/)- Task automation tool 
+* [Laravel] (https://laravel.com/) - PHP web framework
+* [MySQL](http://www.mysql.com/)- Database
+* [Angular] (https://angularjs.org/)- Fronjtend JS framework
+* [Bootstrap] (http://getbootstrap.com/) - CSS framework
+* [SCSS] (http://sass-lang.com/)- Css preprocessor
+* [npm] (https://www.npmjs.com/)- Dependency Management
+* [Gulp] (https://www.gulpjs.com/)- Task automation tool 
 
 
 ##Versioning
@@ -19,8 +19,8 @@ Web based shift management application developed for subha pty ltd, Gordon, NSW.
 
 ##Authors
 
-[Ryan Basnet] ()
-[Prakash Khadka] ()
+[Ryan Basnet] (https://github.com/ryanbasnet)
+[Prakash Khadka] (https://github.com/prakashkhadka)
 
 ##License
 
