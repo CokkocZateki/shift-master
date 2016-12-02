@@ -13,6 +13,25 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
+/**
+ * 
+ */
+
+
+
+
 Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+	$name =['name'=>'rajesh'];
+    return json_encode($name);
+})->middleware('api');
+
+
+Route::group(['prefix'=>'admin','middleware' => ['api']], function () {
+    Route::get('users', function ()    {
+        return "Test api";
+});
+
+
+});
