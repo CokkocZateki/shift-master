@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,18 +21,16 @@ use Illuminate\Http\Request;
  */
 
 
+Route::group(['middleware' => 'api'], function () {
+
+	
+	Route::post('/account/signup',[ 'uses' =>'AuthController@signup' ]);
 
 
-Route::get('/user', function (Request $request) {
-	$name =['name'=>'rajesh'];
-    return json_encode($name);
-})->middleware('api');
+	// Route::post('/account/signup',[ 'uses' =>'AuthController@signup' ]);
 
 
-Route::group(['prefix'=>'admin','middleware' => ['api']], function () {
-    Route::get('users', function ()    {
-        return "Test api";
+   
 });
 
 
-});
