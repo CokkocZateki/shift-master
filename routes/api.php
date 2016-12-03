@@ -19,19 +19,13 @@ use Illuminate\Http\Request;
  * 
  */
 
+Route::group(['middleware' => 'api'], function () {
+    
 
+    Route::post('/account/signup',['uses'=>'Auth\AuthController@signup']);
+    Route::get('/test',function(){
 
-
-Route::get('/user', function (Request $request) {
-	$name =['name'=>'rajesh'];
-    return json_encode($name);
-})->middleware('api');
-
-
-Route::group(['prefix'=>'admin','middleware' => ['api']], function () {
-    Route::get('users', function ()    {
-        return "Test api";
-});
-
+    	return "test";
+    });
 
 });

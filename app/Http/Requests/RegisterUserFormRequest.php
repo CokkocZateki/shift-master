@@ -13,7 +13,7 @@ class RegisterUserFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class RegisterUserFormRequest extends FormRequest
             
 
             'username'=>'required|unique:users|max:5',
-            'email'=>'required|email|unique:employee',
+            'email'=>'required|email|unique:users',
             'password'=>'required|alpha_dash|between:6,10',
             'roleId'=>'required|integer|max:10'
             
