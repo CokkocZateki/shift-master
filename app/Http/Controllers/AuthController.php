@@ -16,11 +16,13 @@ class AuthController extends Controller
     	User::create([
 
 
-    		 'username'=> $request->json('username'),
+    		'username'=> $request->json('username'),
             'email'=> $request->json('email'),
             'password'=> $request->json('password'),
             'roleId'=> $request->json('roleId')
 ]);
 
+
+return response()->json(['message'=>'successfully added'],401);
     	    }
 }
