@@ -19,8 +19,6 @@ use App\Controllers\AuthController;
 /**
  * 
  */
-
-Route::group(['middleware' => 'api'], function () {
     
 Route::group(['middleware' => 'api'], function () {
 
@@ -28,7 +26,7 @@ Route::group(['middleware' => 'api'], function () {
 	Route::post('/account/signup',[ 'uses' =>'AuthController@signup' ]);
 
 
-	// Route::post('/account/signup',[ 'uses' =>'AuthController@signup' ]);
+	Route::post('/account/signin',[ 'uses' =>'AuthController@signin' ]);
 
 
    
