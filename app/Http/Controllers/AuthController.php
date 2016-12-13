@@ -30,21 +30,30 @@ class AuthController extends Controller
 ]);
 
 
-return response()->json(['message'=>'successfully added'],200);
+    return response()->json(['message'=>'successfully added'],200);
     	    }
 
 
     	    public function signin(Request $request){
                
                 $token = JWTAuth::attempt($request->only('email', 'password'));
+                
                 if($token){
                 
-                $user=User::where('email',$request->json('email'))->first();
+                    $user=User::where('email',$request->json('email'))->first();
+
+                    $data=array();
+
+                    $data['userId']=$user->id;
+                    $data['token']=$token;
+                    $data['name']=$user->username;
                
-                return response()->json(['token'=>$token],200);
+                    return response()->json($data,200);
+                
+
                 }else{
 
-                return response()->json(['error'=>'invalid username or password'],401);
+                    return response()->json(['error'=>'Invalid username or password'],401);
 
                 }
                

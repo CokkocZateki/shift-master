@@ -61,16 +61,27 @@ body{
 	color:#FFF;
 }
 
+.btn-login:disabled{
+
+	background-color: #3a75bc;
+	border:none;
+	color:#FFF;
+}
+
+
 .btn-login:hover,.btn-login:focus{
 
 	background-color: #3a75bc;
 	border:none;
 	color:#FFF;
 }
-p,a{
+
+
+.splash-screen p,.splash-screen a{
 	color:#FFF;
 	text-decoration: none;
 }
+
 a:hover,a:active{
 	color:#FFF;
 }
@@ -98,10 +109,39 @@ a:hover,a:active{
 	background-color:#f08080;
 }
 
+.alert-danger{
+
+	background-color: #f08080;
+	color:#FFF;
+	border-radius:0px;
+	border:none;
+}
+
 .form-group .error{
 
 	text-align:left;
 	padding:5px;
 	font-size: 12px;
 	font-weight: 400;
+}
+
+
+
+.fa-spinner{
+
+	animation:spin 2s infinite linear;
+
+}
+
+@keyframes spin{
+
+	from{
+		-webkit-transform-origin:50% 50%;
+		transform:rotate(0deg);
+	}
+
+	to{
+		-webkit-transform-origin:50% 50%;
+		transform:rotate(360deg);
+	}
 }

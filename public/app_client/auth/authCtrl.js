@@ -1,19 +1,36 @@
 app.controller('authCtrl',function(authService,$location){
 var that =this;
+this.actionStatus="Signin";
 
-this.login = function(user){
+if(authService.isLoggedin()){
+  
+  $location.path('/test');
+
+}
+
+
+this.login = (user)=>{
+  
+  this.actionStatus="Signing in"
 
 	authService.authenticate(user).success(function(data){
-                           	$location.path('/test');  
-                             
-                })
-                .error((data,status)=>{
+    $location.path('/test');  
+  })
+  .error((data,status)=>{
+      
+      this.actionStatus="Signin";
+      this.errorMessage=data.error;
                    
-                   this.errorMessage=data.error;
-                   console.log(data.error);
-                   console.log(user.email);
-                });;
+  });;
 }
+
+
+this.logout = ()=>{
+
+  authService.logout();
+
+};
+
 
 
 });
