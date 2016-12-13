@@ -13,5 +13,11 @@
 
 Route::get('/', function () {
 	
-     //return view('welcome');
+     return view('index');
 });
+
+
+// Route::any('/test', function () {
+	
+//      return view('test');
+// });

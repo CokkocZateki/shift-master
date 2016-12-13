@@ -64,8 +64,7 @@
             }
         </style>
     </head>
-    <body><?php echo phpinfo() ?>
-        <div class="flex-center position-ref full-height">
+    <body>        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     <a href="{{ url('/login') }}">Login</a>
@@ -74,7 +73,7 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md">Laravel
                     
                 </div>
 
