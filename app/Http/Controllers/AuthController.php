@@ -26,7 +26,7 @@ class AuthController extends Controller
     		'username'=> $request->json('username'),
             'email'=> $request->json('email'),
             'password'=> bcrypt($request->json('password')),
-            'roleId'=> $request->json('roleId')
+            'role_id'=> $request->json('roleId')
 ]);
 
 

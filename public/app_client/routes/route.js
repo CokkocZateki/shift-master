@@ -24,10 +24,9 @@ app.config(function($routeProvider,$locationProvider){
 			controllerAs:'auth',
 			templateUrl :"app_client/auth/login.php" })
 
-		.when("/test",{
-			controller:'authCtrl',
-			controllerAs:'auth',
-			templateUrl :"app_client/test.php" })
+		.when("/dashboard",{
+	
+			templateUrl :"app_client/dashboard.php" })
 
 	.otherwise({
 

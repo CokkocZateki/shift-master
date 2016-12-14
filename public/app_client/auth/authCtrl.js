@@ -4,7 +4,7 @@ this.actionStatus="Signin";
 
 if(authService.isLoggedin()){
   
-  $location.path('/test');
+  $location.path('/dashboard');
 
 }
 
@@ -14,7 +14,7 @@ this.login = (user)=>{
   this.actionStatus="Signing in"
 
 	authService.authenticate(user).success(function(data){
-    $location.path('/test');  
+    $location.path('/dashboard');  
   })
   .error((data,status)=>{
       

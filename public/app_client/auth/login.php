@@ -1,9 +1,10 @@
-
+<div class="container-fluid">
+<div class="col-xs-12">
 <div class="row">
     <div class="splash-screen" >
         <h1 class="text-xs-center" intro>Shiftmaster</h1>
         <div class="row">
-            <div class="col-sm-4 offset-sm-4 login" slide>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4  logincont" slide>
                 <div class="alert alert-danger" ng-show="auth.errorMessage">{{ auth.errorMessage}}</div>
                 <form name="loginForm" role="form"  ng-submit="auth.login(user)"novalidate>
                     <div class="form-group" ng-class="{'has-error':loginForm.email.$invalid && !loginForm.email.$pristine}">
@@ -25,4 +26,6 @@
             <p class="copyright"><small>&copy 2016 SproutTech</small></p>
         </div>
     </div>
+</div>
+</div>
 </div>
