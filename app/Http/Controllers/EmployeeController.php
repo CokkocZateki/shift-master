@@ -15,6 +15,15 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+
+        $employeeList = Employee::all();
+
+    if(empty($employeeList)){
+
+        return response()->json($employeeList,200);
+    }
+
+    return response()->json($employeeList,200);
         
     }
 
@@ -81,7 +90,8 @@ class EmployeeController extends Controller
             try {
                 
             
-            $employe=Employee::find($id);
+            $employe=Employee::findOrFail($id);
+            
             $employee->first_name = $request->json('firstName');
             $employee->last_name = $request->json('lastName');
             $employee->phone_number = $request->json('phoneNumber');
