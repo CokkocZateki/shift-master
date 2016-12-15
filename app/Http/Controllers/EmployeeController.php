@@ -19,34 +19,6 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(RegisterEmployeeRequest $request)
-    {
-        
-
-        Employee::create([
-
-
-
-            'first_name'=>$request->json('firstName'),
-            'last_name'=>$request->json('lastName'),
-            'phone_number'=>$request->json('phoneNumber'),
-            'email'=>$request->json('email'),
-            'role_id'=>$request->json('roleId'),
-
-
-            ]);
-
- return response()->json(['message'=>'employee resitered successfully'],200);
-
-
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -54,7 +26,23 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+
+            Employee::create([
+
+                'first_name'=>$request->json('firstName'),
+                'last_name'=>$request->json('lastName'),
+                'phone_number'=>$request->json('phoneNumber'),
+                'email'=>$request->json('email'),
+                'role_id'=>$request->json('roleId'),
+            ]);
+
+            return response()->json(['message'=>'employee resitered successfully'],200);
+
+        }catch(\PDOException $e){
+
+            return response()->json(['message'=>'sorry employee could not be registered'],422);
+        }
     }
 
     /**
@@ -97,8 +85,17 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+         try{
+
+            $employee = Employee::find($id);
+            $employee->delete();
+            return response()->json(['message'=>'Employee deleted successfully'],200);
+
+        }catch(\PDOException $e){
+
+            return response()->json(['message'=>'sorry employee could not be delted'],422);
+        }
     }
 }

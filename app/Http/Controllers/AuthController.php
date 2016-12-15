@@ -20,6 +20,11 @@ class AuthController extends Controller
 
     public function signup(RegisterUserRequest $request){
 
+
+try{
+
+
+
     	User::create([
 
 
@@ -29,7 +34,10 @@ class AuthController extends Controller
             'role_id'=> $request->json('roleId')
 ]);
 
+}catch(\PDOException $e){
 
+        return response()->json(['message'=>'Sorry no employee exist with such email.'],424);
+    }
     return response()->json(['message'=>'successfully added'],200);
     	    }
 

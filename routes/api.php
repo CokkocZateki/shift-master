@@ -37,7 +37,8 @@ Route::group(['middleware' => 'api'], function () {
 Route::group(['prefix'=>'employee','middleware' => 'api'], function () {
 
 	
-	Route::post('/',[ 'uses' =>'EmployeeController@create' ]);
+	Route::post('/',[ 'uses' =>'EmployeeController@store' ]);
+	Route::delete('/{id}',[ 'uses' =>'EmployeeController@destroy' ]);
 
 
 	
