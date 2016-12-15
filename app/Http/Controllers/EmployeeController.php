@@ -90,7 +90,7 @@ class EmployeeController extends Controller
             try {
                 
             
-            $employe=Employee::findOrFail($id);
+            $employee=Employee::findOrFail($id);
             
             $employee->first_name = $request->json('firstName');
             $employee->last_name = $request->json('lastName');

@@ -40,6 +40,7 @@ Route::group(['prefix'=>'employee','middleware' => 'api'], function () {
 	Route::get('/{id}',[ 'uses' =>'EmployeeController@show' ]);
 	Route::post('/',[ 'uses' =>'EmployeeController@store' ]);
 	Route::delete('/{id}',[ 'uses' =>'EmployeeController@destroy' ]);
+	Route::put('/{id}',[ 'uses' =>'EmployeeController@update' ]);
 
 
 	
