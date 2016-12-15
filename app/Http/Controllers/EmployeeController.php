@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Http\Requests\RegisterEmployeeFormRequest as RegisterEmployeeRequest;
+use App\Http\Requests\UpdateEmployeeRequest as UpdateEmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -33,7 +34,7 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterEmployeeRequest $request)
     {
         try{
 
@@ -85,13 +86,15 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RegisterEmployeeRequest $request, $id)
+    public function update(UpdateEmployeeRequest $request, $id)
     {
+    
             try {
                 
             
-            $employee=Employee::findOrFail($id);
+            $employee=Employee::find($id);
             
+            if($employee){
             $employee->first_name = $request->json('firstName');
             $employee->last_name = $request->json('lastName');
             $employee->phone_number = $request->json('phoneNumber');
@@ -99,7 +102,13 @@ class EmployeeController extends Controller
             $employee->role_id = $request->json('roleId');
 
             $employee->save();
-            return response()->json(['message'=>'employee updated successfully'],409);
+            return response()->json(['message'=>'employee updated successfully'],200);
+
+            }
+            
+            return response()->json(['message'=>'sorry employee not found'],409);
+            
+           
 
             } catch (Exception $e) {
 
