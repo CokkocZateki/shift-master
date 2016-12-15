@@ -1,6 +1,6 @@
 app.service('authService',function($http,$window,$location){
 
-
+	this.infoMessage;
 	var saveUserDetails=function(data){
 
 		$window.localStorage.setItem('userId',data.userId);
@@ -27,10 +27,11 @@ app.service('authService',function($http,$window,$location){
 
 
 
-	this.logout=function(){
+	this.logout=()=>{
 
 
 		$window.localStorage.clear();
+		this.infoMessage="Gooodbye, see you soon!";
 		$location.path('/');
 
 	};
@@ -54,8 +55,8 @@ app.service('authService',function($http,$window,$location){
 
 			const user = {};
 
-			user.userId = $window.localStorage.getItem('userId');
-
+			user.id = $window.localStorage.getItem('userId');
+			user.name=$window.localStorage.getItem('name');
 			return user;
 
 	}

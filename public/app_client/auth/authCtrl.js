@@ -1,6 +1,7 @@
 app.controller('authCtrl',function(authService,$location){
 var that =this;
 this.actionStatus="Signin";
+this.infoMessage = authService.infoMessage;
 
 if(authService.isLoggedin()){
   

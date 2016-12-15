@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4  logincont" slide>
                 <div class="alert alert-danger" ng-show="auth.errorMessage">{{ auth.errorMessage}}</div>
+                <div class="alert alert-info" ng-show="auth.infoMessage">{{ auth.infoMessage}}</div>
                 <form name="loginForm" role="form"  ng-submit="auth.login(user)"novalidate>
                     <div class="form-group" ng-class="{'has-error':loginForm.email.$invalid && !loginForm.email.$pristine}">
                         <input type="email" name="email" class="form-control" placeholder="Email" ng-model="user.email" ng-blur="blur=true" ng-focus="blur=false" required>

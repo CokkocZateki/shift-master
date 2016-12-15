@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFkRelationInUsersTable extends Migration
+class CreateRelationshipBetweenUsersEmployeeTables extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,10 @@ class AddFkRelationInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            Schema::table('users', function (Blueprint $table) {
+            $table->foreign('email')->references('email')->on('employee')->onDelete('cascade');
             
-            
-
-            $table->foreign('role_id')
-                ->references('id')
-                ->on('roles')->onDelete('restrict');
+        });
         });
     }
 
@@ -31,7 +29,7 @@ class AddFkRelationInUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-
+            //
         });
     }
 }

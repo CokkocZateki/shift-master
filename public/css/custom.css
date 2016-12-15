@@ -306,7 +306,10 @@ body .container.body .right_col {
   float: left;
   background: #2A3F54;
   border-radius: 0;
-  height: 57px; }
+  height: 57px; 
+  font-family: 'Seaweed Script', cursive;
+
+}
 
 @media (max-width: 991px) {
   .nav-md .container.body .right_col, .nav-md .container.body .top_nav {
@@ -672,7 +675,8 @@ a:hover, a:focus {
   display: block;
   height: 55px;
   margin: 0;
-  padding-left: 10px; }
+  padding-left: 10px;
+  font-family: 'Seaweed Script', cursive; }
 
 .site_title:hover, .site_title:focus {
   text-decoration: none; }
