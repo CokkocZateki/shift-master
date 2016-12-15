@@ -53,7 +53,9 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+
+        return response()->json($employee,200);
     }
 
     /**
@@ -74,9 +76,27 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RegisterEmployeeRequest $request, $id)
     {
-        //
+            try {
+                
+            
+            $employe=Employee::find($id);
+            $employee->first_name = $request->json('firstName');
+            $employee->last_name = $request->json('lastName');
+            $employee->phone_number = $request->json('phoneNumber');
+            $employee->email = $request->json('email');
+            $employee->role_id = $request->json('roleId');
+
+            $employee->save();
+            return response()->json(['message'=>'employee updated successfully'],409);
+
+            } catch (Exception $e) {
+
+                return response()->json(['message'=>'sorry employee could not be updated'],409);
+                
+            }
+
     }
 
     /**
