@@ -11,6 +11,7 @@ use App\Http\Requests\RegisterUserFormRequest as RegisterUserRequest;
 use App\Models\User;
 use App\Models\Employee;
 use JWTAuth;
+use Carbon\Carbon;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
@@ -54,10 +55,9 @@ class AuthController extends Controller
      */
     public function signin(Request $request){
                
-        $token = JWTAuth::attempt($request->only('email', 'password')[
+        $token = JWTAuth::attempt($request->only('email', 'password'),[
 
-
-
+                        'exp'=>Carbon::now()->addDay()->timestamp,
 
             ]);
                 
