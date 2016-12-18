@@ -1,7 +1,6 @@
 /*
- * Directive to animate landing page intro
+ * Directive to animate landing page intro logo
  */
-
 
 
 app.directive('intro',['$interval','$timeout',function($interval,$timeout){
@@ -13,12 +12,12 @@ app.directive('intro',['$interval','$timeout',function($interval,$timeout){
 
 			$timeout(function(){
 
-				// element.css('color','red');
+			
 				element.css('font-size','53px');
 				element.css('transform','translateY(-180px)');
 
 
-			},700)
+			},700);
 			
 
 		}
@@ -27,8 +26,11 @@ app.directive('intro',['$interval','$timeout',function($interval,$timeout){
 
 
 
-}])
+}]);
 
+/**
+ * slides login container up
+ */
 
 app.directive('slide',['$interval','$timeout',function($interval,$timeout){
 
@@ -53,4 +55,4 @@ app.directive('slide',['$interval','$timeout',function($interval,$timeout){
 
 
 
-}])
+}]);

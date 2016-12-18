@@ -13,14 +13,14 @@ body{
 
 	min-height:100vh;
 	position:fixed;
-	width:100%;
+	width:100% !important;
 	overflow:hidden;
 	text-align: center;
 	transition:transform 2s ease-out;
 	background:linear-gradient(to bottom,#282f38,transparent),url('../hero_image.jpg');
 	background-position: center;
 	background-size:cover;
-
+	
 
 }
 

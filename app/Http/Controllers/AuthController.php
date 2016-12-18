@@ -17,55 +17,72 @@ class AuthController extends Controller
 {
     
 
+    /**
+     * [signup description]
+     * @param  RegisterUserRequest $request [description]
+     * @return [type]                       [description]
+     */
 
     public function signup(RegisterUserRequest $request){
 
 
-try{
+        try{
+
+    	   User::create([
+
+    	       'username'=> $request->json('username'),
+                'email'=> $request->json('email'),
+                'password'=> bcrypt($request->json('password')),
+                'role_id'=> $request->json('roleId')
 
 
+            ]);
 
-    	User::create([
+        }catch(\PDOException $e){
 
-
-    		'username'=> $request->json('username'),
-            'email'=> $request->json('email'),
-            'password'=> bcrypt($request->json('password')),
-            'role_id'=> $request->json('roleId')
-]);
-
-}catch(\PDOException $e){
-
-        return response()->json(['message'=>'Sorry no employee exist with such email.'],424);
+            return response()->json(['message'=>'Sorry user account could not be created.'],424);
+        }
+    
+            return response()->json(['message'=>'user account successfully created.'],200);
     }
-    return response()->json(['message'=>'successfully added'],200);
-    	    }
 
 
-    	    public function signin(Request $request){
+    /**
+     * [signin description]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function signin(Request $request){
                
-                $token = JWTAuth::attempt($request->only('email', 'password'));
+        $token = JWTAuth::attempt($request->only('email', 'password')[
+
+
+
+
+            ]);
                 
-                if($token){
+        if($token){
                 
-                    $user=User::where('email',$request->json('email'))->first();
+            $user=User::where('email',$request->json('email'))->first();
+            $employee=Employee::where('email',$request->json('email'))->first();
 
-                    $data=array();
+            $data=array();
 
-                    $data['userId']=$user->id;
-                    $data['token']=$token;
-                    $data['name']=$user->username;
-               
-                    return response()->json($data,200);
+            $data['userId']=$user->id;
+            $data['employeeId']=$employee->id;
+            $data['token']=$token;
+            $data['name']="$employee->first_name $employee->last_name";
+       
+            return response()->json($data,200);
                 
 
-                }else{
+        }else{
 
-                    return response()->json(['error'=>'Invalid username or password'],401);
+            return response()->json(['error'=>'Invalid username or password'],401);
 
-                }
-               
-    	    	
-    	    }
+        }	
+    }
+
+
 
 }

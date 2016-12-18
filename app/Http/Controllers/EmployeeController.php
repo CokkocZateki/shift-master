@@ -19,12 +19,12 @@ class EmployeeController extends Controller
 
         $employeeList = Employee::all();
 
-    if(empty($employeeList)){
+        if(empty($employeeList)){
+
+            return response()->json(['error'=>'Sorry no employee found.'],200);
+        }
 
         return response()->json($employeeList,200);
-    }
-
-    return response()->json($employeeList,200);
         
     }
 
@@ -47,11 +47,11 @@ class EmployeeController extends Controller
                 'role_id'=>$request->json('roleId'),
             ]);
 
-            return response()->json(['message'=>'employee resitered successfully'],200);
+            return response()->json(['message'=>'eEmployee added successfully.'],200);
 
         }catch(\PDOException $e){
 
-            return response()->json(['message'=>'sorry employee could not be registered'],422);
+            return response()->json(['message'=>'Sorry employee could not be added.'],422);
         }
     }
 
@@ -63,9 +63,14 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $employee = Employee::findOrFail($id);
+        $employee = Employee::find($id);
 
-        return response()->json($employee,200);
+        if($employee){
+
+            return response()->json($employee,200);
+        }
+
+        return response()->json('Sorry no employee found',404);
     }
 
     /**
@@ -89,30 +94,31 @@ class EmployeeController extends Controller
     public function update(UpdateEmployeeRequest $request, $id)
     {
     
-            try {
+        try {
                 
             
             $employee=Employee::find($id);
             
             if($employee){
-            $employee->first_name = $request->json('firstName');
-            $employee->last_name = $request->json('lastName');
-            $employee->phone_number = $request->json('phoneNumber');
-            $employee->email = $request->json('email');
-            $employee->role_id = $request->json('roleId');
-
-            $employee->save();
-            return response()->json(['message'=>'employee updated successfully'],200);
+                
+                $employee->first_name = $request->json('firstName');
+                $employee->last_name = $request->json('lastName');
+                $employee->phone_number = $request->json('phoneNumber');
+                $employee->email = $request->json('email');
+                $employee->role_id = $request->json('roleId');
+                $employee->save();
+                
+                return response()->json(['message'=>'Employee updated successfully.'],200);
 
             }
             
-            return response()->json(['message'=>'sorry employee not found'],409);
+            return response()->json(['message'=>'Sorry employee not found'],409);
             
            
 
             } catch (Exception $e) {
 
-                return response()->json(['message'=>'sorry employee could not be updated'],409);
+                return response()->json(['message'=>'Sorry employee could not be updated.'],409);
                 
             }
 
@@ -130,11 +136,11 @@ class EmployeeController extends Controller
 
             $employee = Employee::find($id);
             $employee->delete();
-            return response()->json(['message'=>'Employee deleted successfully'],200);
+            return response()->json(['message'=>'Employee deleted successfully.'],200);
 
         }catch(\PDOException $e){
 
-            return response()->json(['message'=>'sorry employee could not be delted'],422);
+            return response()->json(['message'=>'Sorry employee could not be delted.'],422);
         }
     }
 }
