@@ -5,6 +5,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Employee;
 
 class User extends Authenticatable
 {
@@ -23,7 +24,10 @@ class User extends Authenticatable
     ];
 
 
+public function employee(){
 
+    return $this->belongsTo('Employee','email');
+}
  /**
      * The attributes that should be hidden for arrays.
      *

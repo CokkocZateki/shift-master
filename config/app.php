@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -178,11 +179,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        /**
-     * package service providers
-     */
+        /*
+        * package service providers
+        */
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Spatie\Fractal\FractalServiceProvider::class,
 
 
     ],

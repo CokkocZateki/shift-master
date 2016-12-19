@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Http\Requests\RegisterEmployeeFormRequest as RegisterEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest as UpdateEmployeeRequest;
+use App\Transformers\EmployeeTransformer;
 
 class EmployeeController extends Controller
 {
@@ -66,8 +67,10 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
 
         if($employee){
+            var_dump($employee->user);
+            exit;
 
-            return response()->json($employee,200);
+            return fractal()->item($employee)->transformWith(new EmployeeTransformer)->toArray();
         }
 
         return response()->json('Sorry no employee found',404);

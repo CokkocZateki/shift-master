@@ -18,4 +18,11 @@ class Employee extends Model
     protected $fillable = [
         'first_name','last_name','email','phone_number','role_id'
     ];
+
+
+    public function user(){
+
+
+    	return $this->hasOne('App\Models\User','email','email');
+    }
 }
