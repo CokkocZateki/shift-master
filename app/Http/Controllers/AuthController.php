@@ -64,7 +64,7 @@ class AuthController extends Controller
         if($token){
                 
             $user=User::where('email',$request->json('email'))->first();
-            $employee=Employee::where('email',$request->json('email'))->first();
+            $employee=$user->employee;
 
             $data=array();
 

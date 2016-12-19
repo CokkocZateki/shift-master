@@ -26,7 +26,7 @@ class User extends Authenticatable
 
 public function employee(){
 
-    return $this->belongsTo('Employee','email');
+    return $this->belongsTo('App\Models\Employee','email','email');
 }
  /**
      * The attributes that should be hidden for arrays.

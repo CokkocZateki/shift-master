@@ -25,7 +25,7 @@ class EmployeeController extends Controller
             return response()->json(['error'=>'Sorry no employee found.'],200);
         }
 
-        return response()->json($employeeList,200);
+      return fractal()->collection($employeeList)->transformWith(new EmployeeTransformer)->toArray();
         
     }
 
@@ -67,10 +67,13 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
 
         if($employee){
-            var_dump($employee->user);
-            exit;
 
-            return fractal()->item($employee)->transformWith(new EmployeeTransformer)->toArray();
+
+            return fractal()
+                    ->item($employee)
+                    ->includeUser()
+                    ->transformWith(new EmployeeTransformer)
+                    ->toArray();
         }
 
         return response()->json('Sorry no employee found',404);
