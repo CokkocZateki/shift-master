@@ -32,7 +32,7 @@ class RosterCreatedListener
         $endDate = $roster->end_date;
         $rosterId=$roster->id;
 
-        for ($i=0; $i < 6; $i++) { 
+        for ($i=0; $i < 7; $i++) { 
 
             $currentDate = Carbon::createFromFormat('Y-m-d',$startDate)->addDay($i);
             $day = $currentDate->format('l');
