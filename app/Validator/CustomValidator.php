@@ -16,7 +16,11 @@ public function validateRosterStartDate($attribute, $value, $parameters, $valida
 
 
 
-	$last_roster = Roster::find(9)->orderBy('start_date','desc')->first();
+	$last_roster = Roster::orderBy('start_date','desc')->first();
+	if(empty($last_roster)){
+
+		return true;
+	}
 	$last_roster_start_date=Carbon::createFromFormat('Y-m-d',$last_roster->start_date);
 	$last_roster_end_date=Carbon::createFromFormat('Y-m-d',$last_roster->end_date);
 

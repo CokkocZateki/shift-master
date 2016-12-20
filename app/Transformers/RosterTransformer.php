@@ -17,7 +17,7 @@ class RosterTransformer extends TransformerAbstract {
      * @var array
      */
     // protected $availableIncludes = [
-    //     'user'
+    //     'schedules'
     // ];
 
 	public function transform(Roster $roster){
@@ -40,12 +40,12 @@ class RosterTransformer extends TransformerAbstract {
      *
      * @return League\Fractal\ItemResource
      */
-    // public function includeUser(Employee $employee)
-    // {
-    //     $user = $employee->user;
+    public function includeSchedules(Roster $roster)
+    {
+        $schedules = $roster->schedules;
 
-    //     return $this->item($user, new UserTransformer);
-    // }
+        return $this->collection($schedules, new ScheduleTransformer);
+    }
 
 
 
