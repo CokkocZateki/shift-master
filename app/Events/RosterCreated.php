@@ -9,18 +9,20 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class testEvent
+class RosterCreated
 {
     use InteractsWithSockets, SerializesModels;
+
+    public $roster;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($roster)
     {
-        //
+        $this->roster=$roster;
     }
 
     /**

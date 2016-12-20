@@ -16,6 +16,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\AccountCreateEvent' => [
             'App\Listeners\AccountCreatenoification',
         ],
+
+        'App\Events\RosterCreated' => [
+            'App\Listeners\RosterCreatedListener',
+        ],
     ];
 
     /**

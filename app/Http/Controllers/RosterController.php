@@ -8,6 +8,8 @@ use App\Http\Requests\CreateRosterRequest;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Validator\CustomValidator;
+use App\Events\RosterCreated;
+
 
 class RosterController extends Controller
 {
@@ -54,10 +56,12 @@ class RosterController extends Controller
             'is_active'=>$request->json('isActive'),
 
 
-            ]);
+            ])->id;
+
+        $newRoster = Roster::find($roster);
 
 
-
+        event( new RosterCreated($newRoster));
         return response()->json(['message'=>'roster created successfully.'],200);
 
         
