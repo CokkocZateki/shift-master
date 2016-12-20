@@ -13,6 +13,7 @@ use App\Models\Employee;
 use JWTAuth;
 use Carbon\Carbon;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\Events\AccountCreated;
 
 class AuthController extends Controller
 {
@@ -29,7 +30,7 @@ class AuthController extends Controller
 
         try{
 
-    	   User::create([
+    	  $user= User::create([
 
     	       'username'=> $request->json('username'),
                 'email'=> $request->json('email'),
@@ -43,7 +44,9 @@ class AuthController extends Controller
 
             return response()->json(['message'=>'Sorry user account could not be created.'],424);
         }
-    
+          
+            event(new AccountCreated($user));
+            exit;
             return response()->json(['message'=>'user account successfully created.'],200);
     }
 

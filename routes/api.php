@@ -34,13 +34,24 @@ Route::group(['middleware' => 'api'], function () {
 
 
 
-Route::group(['prefix'=>'employee','middleware' => 'jwt.auth'], function () {
+Route::group(['prefix'=>'/employee','middleware' => 'jwt.auth'], function () {
 
 	Route::get('/',[ 'uses' =>'EmployeeController@index' ]);
 	Route::get('/{id}',[ 'uses' =>'EmployeeController@show' ]);
 	Route::post('/',[ 'uses' =>'EmployeeController@store' ]);
 	Route::delete('/{id}',[ 'uses' =>'EmployeeController@destroy' ]);
 	Route::put('/{id}',[ 'uses' =>'EmployeeController@update' ]);
+
+});
+
+
+Route::group(['middleware' => 'api'], function () {
+
+	Route::get('/rosters/',[ 'uses' =>'RosterController@index' ]);
+	Route::post('/rosters/',[ 'uses' =>'RosterController@store' ]);
+	Route::post('/rosters/test',[ 'uses' =>'RosterController@store' ]);
+
+
 
 });
 

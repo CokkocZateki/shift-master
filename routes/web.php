@@ -21,3 +21,4 @@ Route::any('/template', function () {
 	
      return view('template');
 });
+

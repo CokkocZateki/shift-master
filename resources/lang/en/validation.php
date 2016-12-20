@@ -99,6 +99,17 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
+        'rosterStartDate' => [
+        'required' => 'roster start date is required',
+        'unique' => 'roster already exist with same start date.',
+        'roster_start_date'=>"roster date must be after previous roster end date."
+    ],
+
+     'rosterEndDate' => [
+        'required' => 'roster end date is required',
+        'roster_end_date'=>"roster  must be of 7 days."
+    ],
     ],
 
     /*
