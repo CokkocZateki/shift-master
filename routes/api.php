@@ -72,6 +72,21 @@ Route::group(['middleware' => 'api'], function () {
 
 
 
+Route::group(['middleware' => 'api'], function () {
+
+	
+	Route::post('/shifts/',[ 'uses' =>'ShiftController@store' ]);
+	Route::get('/shifts',[ 'uses' =>'ShiftController@index' ]);
+	Route::get('/shifts/{id}',[ 'uses' =>'ShiftController@show' ]);
+	Route::put('/shifts/{id}',[ 'uses' =>'ShiftController@update' ]);
+	Route::delete('/shifts/{id}',[ 'uses' =>'ShiftController@destroy' ]);
+	
+
+
+
+});
+
+
 
 
 
