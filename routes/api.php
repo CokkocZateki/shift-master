@@ -61,7 +61,7 @@ Route::group(['middleware' => 'api'], function () {
 Route::group(['middleware' => 'api'], function () {
 
 	
-	Route::post('/rosters/post',[ 'uses' =>'RosterController@store' ]);
+	Route::post('/rosters',[ 'uses' =>'RosterController@store' ]);
 	Route::get('/rosters/',[ 'uses' =>'RosterController@index' ]);
 	Route::get('/rosters/{id}',[ 'uses' =>'RosterController@show' ]);
 	
