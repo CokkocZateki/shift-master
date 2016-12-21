@@ -24,7 +24,7 @@ class EmployeeTransformer extends TransformerAbstract {
 
 		return [
 
-
+            'id'=>$employee->id,
 			'firstNname'=>$employee->first_name,
 			'lastName'=>$employee->last_name,
 			'email'=>$employee->email,

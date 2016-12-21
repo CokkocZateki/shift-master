@@ -15,16 +15,16 @@ class UserTransformer extends TransformerAbstract {
      *
      * @var array
      */
-    // protected $availableIncludes = [
-    //     'user'
-    // ];
+    protected $availableIncludes = [
+        'employee'
+    ];
 
 	public function transform(User $user){
 
 
 		return [
 
-
+            'id'=>$user->id,
 			'username'=>$user->username,
 			'email'=>$user->email,
 			'roleId'=>$user->role_id
@@ -40,12 +40,12 @@ class UserTransformer extends TransformerAbstract {
      *
      * @return League\Fractal\ItemResource
      */
-    // public function includeUser(Employee $employee)
-    // {
-    //     $user = $employee->user;
+    public function includeEmployee(User $user)
+    {
+        $employee = $user->employee;
 
-    //     return $this->item($user, new UserTransformer);
-    // }
+        return $this->item($employee, new EmployeeTransformer);
+    }
 
 
 

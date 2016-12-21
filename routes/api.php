@@ -44,6 +44,19 @@ Route::group(['prefix'=>'/employee','middleware' => 'jwt.auth'], function () {
 
 });
 
+Route::group(['middleware' => 'api'], function () {
+
+	
+	Route::post('/users',[ 'uses' =>'UserAccountController@store' ]);
+	Route::get('/users/{id}',[ 'uses' =>'UserAccountController@show' ]);
+	Route::get('/users',[ 'uses' =>'UserAccountController@index' ]);
+	
+
+
+
+});
+
+
 
 Route::group(['middleware' => 'api'], function () {
 

@@ -1,17 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Roster;
-use App\Transformers\RosterTransformer;
-use App\Http\Requests\CreateRosterRequest;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use App\Validator\CustomValidator;
-use App\Events\RosterCreated;
+use App\Models\User;
+use App\Transformers\UserTransformer;
 
-
-class RosterController extends Controller
+class UserAccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,13 +15,7 @@ class RosterController extends Controller
      */
     public function index()
     {
-        $rosters=Roster::all();
-
-        return fractal()
-                ->collection($rosters)
-                ->includeSchedules()
-                ->transformWith(new RosterTransformer)
-                ->toArray();
+        //
     }
 
     /**
@@ -34,10 +23,9 @@ class RosterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CreateRosterRequest $request)
+    public function create()
     {
-        
-     
+        //
     }
 
     /**
@@ -46,27 +34,9 @@ class RosterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateRosterRequest $request)
+    public function store(Request $request)
     {
-        
-      
-        $roster = Roster::create([
-
-            'start_date'=>$request->json('rosterStartDate'),
-            'end_date'=>$request->json('rosterEndDate'),
-            'is_active'=>$request->json('isActive'),
-
-
-            ])->id;
-
-        $newRoster = Roster::find($roster);
-
-
-        event( new RosterCreated($newRoster));
-        return response()->json(['message'=>'roster created successfully.'],200);
-
-        
-
+        //
     }
 
     /**
@@ -77,21 +47,20 @@ class RosterController extends Controller
      */
     public function show($id)
     {
-        $roster=Roster::find($id);
+        $user = User::find($id);
 
+        if($user){
 
-        if($roster){
-
-           return  fractal()
-            ->item($roster)
-            ->includeSchedules()
-            ->transformWith(new RosterTransformer)
+            return fractal()
+            ->item($user)
+            ->includeEmployee()
+            ->transformWith(new UserTransFormer)
             ->toArray();
 
         }
 
-        return response()->json(['error'=>'Sorry no roster found'],404);
-
+        return response()->json(['error'=>'Sorry no user found'],404);
+        
     }
 
     /**
@@ -127,6 +96,4 @@ class RosterController extends Controller
     {
         //
     }
-
-
 }
