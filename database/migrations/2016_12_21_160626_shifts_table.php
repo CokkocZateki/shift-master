@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShiftTable extends Migration
+class ShiftsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateShiftTable extends Migration
     public function up()
     {
         Schema::create('shifts', function (Blueprint $table) {
-               
+            
             $table->increments('id');
             $table->time('start_time');
             $table->time('end_time');
@@ -38,7 +38,6 @@ class CreateShiftTable extends Migration
                   ->onDelete('restrict')
                   ->onUpdate('cascade');
 
-        
         });
     }
 
@@ -49,6 +48,8 @@ class CreateShiftTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shifts');
+        //
     }
 }
+
+

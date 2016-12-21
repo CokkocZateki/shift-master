@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Shift;
 use Carbon\Carbon;
+use App\Transformers\ShiftTransformer;
 class ShiftController extends Controller
 {
     /**
@@ -14,7 +15,12 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        return "all shift";
+
+        $shifts = Shift::all();
+        return fractal()
+        ->collection($shifts)
+        ->transformWith(new ShiftTransformer)
+        ->toArray();
     }
 
     /**

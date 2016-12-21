@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Roster;
+use App\Models\Schedule;
 use App\Transformers\RosterTransformer;
+use App\Transformers\ScheduleTransformer;
 use App\Http\Requests\CreateRosterRequest;
 
 use Illuminate\Http\Request;
@@ -78,8 +80,12 @@ class RosterController extends Controller
     public function show($id)
     {
         $roster=Roster::find($id);
-
-
+// $s = Schedule::find(29);
+// return  fractal()
+//             ->item($s)
+//             ->includeShifts()
+//             ->transformWith(new ScheduleTransformer)
+//             ->toArray();
         if($roster){
 
            return  fractal()

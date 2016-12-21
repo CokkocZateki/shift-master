@@ -16,20 +16,18 @@ class ScheduleTransformer extends TransformerAbstract {
      *
      * @var array
      */
-    protected $availableIncludes = [
-        'shifts'
-    ];
+    protected $availableIncludes = ['shifts'];
 
 	public function transform(Schedule $schedule){
 
-
+        $shifts = $schedule->shifts;
 		return [
 
-
+            'id'=>$schedule->id,
 			'date'=>$schedule->date,
 			'day'=>$schedule->day,
-            'rosterId'=>$schedule->roster_id
-
+            'rosterId'=>$schedule->roster_id,
+            // 'shifts'=>$this->includeShifts($schedule),
 		];
 
 
@@ -43,7 +41,9 @@ class ScheduleTransformer extends TransformerAbstract {
      */
     public function includeShifts(Schedule $schedule)
     {
-        $shifts = $schedule->shifts;
+
+   $shifts=$schedule->shifts;
+
 
         return $this->collection($shifts, new ShiftTransformer);
     }

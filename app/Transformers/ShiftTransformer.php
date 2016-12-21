@@ -6,15 +6,8 @@ use App\Models\Shift;
 use League\Fractal\TransformerAbstract;
 
 
-class UserTransformer extends TransformerAbstract {
+class ShiftTransformer extends TransformerAbstract {
 
-
-	/**
-     * List of resources possible to include
-     *
-     * @var array
-     */
-    
 
 	public function transform(Shift $shift){
 
@@ -24,12 +17,17 @@ class UserTransformer extends TransformerAbstract {
             'id'=>$shift->id,
 			'startTime'=>$shift->start_time,
 			'endTime'=>$shift->end_time,
-			'hours'=>$shift->hours
+			'hours'=>$shift->hours,
+			'employeeId'=>$shift->employee_id
 
 		];
 
 
 	}
+
+
+
+
 
 
 
