@@ -47,7 +47,8 @@ class ShiftController extends Controller
                 'start_time'=>$startTime,
                 'end_time'=>$endTime,
                 'hours'=>$hours,
-                'schedule_id'=>$request->json('scheduleId')
+                'schedule_id'=>$request->json('scheduleId'),
+                'employee_id'=>$request->json('employeeId')
 
 
 

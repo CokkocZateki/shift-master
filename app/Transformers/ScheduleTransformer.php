@@ -16,9 +16,9 @@ class ScheduleTransformer extends TransformerAbstract {
      *
      * @var array
      */
-    // protected $availableIncludes = [
-    //     'user'
-    // ];
+    protected $availableIncludes = [
+        'shifts'
+    ];
 
 	public function transform(Schedule $schedule){
 
@@ -41,12 +41,12 @@ class ScheduleTransformer extends TransformerAbstract {
      *
      * @return League\Fractal\ItemResource
      */
-    // public function includeUser(Employee $employee)
-    // {
-    //     $user = $employee->user;
+    public function includeShifts(Schedule $schedule)
+    {
+        $shifts = $schedule->shifts;
 
-    //     return $this->item($user, new UserTransformer);
-    // }
+        return $this->collection($shifts, new ShiftTransformer);
+    }
 
 
 
