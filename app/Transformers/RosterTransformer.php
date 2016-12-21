@@ -16,16 +16,16 @@ class RosterTransformer extends TransformerAbstract {
      *
      * @var array
      */
-    // protected $availableIncludes = [
-    //     'schedules'
-    // ];
+    protected $availableIncludes = [
+        'schedules'
+    ];
 
 	public function transform(Roster $roster){
 
 
 		return [
 
-
+            'id'=>$roster->id,
 			'start_date'=>$roster->start_date,
 			'end_date'=>$roster->end_date,
 

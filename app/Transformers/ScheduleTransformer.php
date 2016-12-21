@@ -28,7 +28,7 @@ class ScheduleTransformer extends TransformerAbstract {
 
 			'date'=>$schedule->date,
 			'day'=>$schedule->day,
-            'rosterId'=>$schedule->roset_id
+            'rosterId'=>$schedule->roster_id
 
 		];
 

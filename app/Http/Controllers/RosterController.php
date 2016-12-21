@@ -76,7 +76,21 @@ class RosterController extends Controller
      */
     public function show($id)
     {
-        //
+        $roster=Roster::find($id);
+
+
+        if($roster){
+
+           return  fractal()
+            ->item($roster)
+            ->includeSchedules()
+            ->transformWith(new RosterTransformer)
+            ->toArray();
+
+        }
+
+        return response()->json(['error'=>'Sorry no roster found'],404);
+
     }
 
     /**
