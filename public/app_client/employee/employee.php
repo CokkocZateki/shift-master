@@ -3,13 +3,10 @@
 <top-navigation></top-navigation>
 
 <div class="right_col" role="main" >
-<p>Employee details</p> {{emplyee.employeeList.length}}
-<h1>{{employee.em.first_name}}</h1>
-  <ul>
-	<li ng-repeat="e in employee.employeeList">
-		
-		<p>{{e.first_name}}</p><a href="/employee/{{e.id}}" ng-click="employee.getEmployee(e.id)">view</a>
-	</li>
+<h1>Lorem ipsum dolor sit amet, consectetur 
+adipisicing elit. Repellat, dolores natus laborum voluptatem. E
+veniet provident harum magni. Dolore voluptate quibusdam aliquid iure, quisquam adipisci similique ad earum, accusantium at repellat?</h1>
+  
 </div>
 
 

@@ -3,7 +3,7 @@
 <top-navigation></top-navigation>
 
 <div class="right_col" role="main" > 
-  <h1>All Employee</h1>
+     <h1>Profile</h1>
 </div>
 
 

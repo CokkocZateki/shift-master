@@ -17,8 +17,5 @@ Route::get('/', function () {
 });
 
 
-Route::any('/template', function () {
-	
-     return view('template');
-});
+
 

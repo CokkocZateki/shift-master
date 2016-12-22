@@ -34,7 +34,7 @@ Route::group(['middleware' => 'api'], function () {
 
 
 
-Route::group(['prefix'=>'/employee','middleware' => 'jwt.auth'], function () {
+Route::group(['prefix'=>'/employee','middleware' => 'api'], function () {
 
 	Route::get('/',[ 'uses' =>'EmployeeController@index' ]);
 	Route::get('/{id}',[ 'uses' =>'EmployeeController@show' ]);

@@ -44,14 +44,24 @@ app.config(function($routeProvider,$locationProvider){
 			controllerAs 	: 	'employee',
 			templateUrl 	:   'app_client/employee/employee.php'})
 
+		.when('/profile',{
 
-		.when('/test',{
+			controller 		: 	'profileCtrl',
+			controllerAs 	: 	'profile',
+			templateUrl 	:   'app_client/user/profile/profile.php'})
+
+
+		.when('/contacts',{
 	
-			templateUrl :'app_client/test.php' })
+			templateUrl :'app_client/contact/contacts.php' })
 
-		.otherwise({
 
-		redirectTo:'/' });
+		.when('/rosters',{
+	
+			templateUrl :'app_client/roster/rosters.php' })
+		// .otherwise({
+
+		// redirectTo:'/' });
 
 
 
